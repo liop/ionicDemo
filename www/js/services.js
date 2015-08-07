@@ -1,5 +1,11 @@
-angular.module('starter.services', [])
-
+angular.module('starter.services', ['ngResource'])
+.factory('banner',function($resource){
+    var User = $resource('/user/:userId', {userId:'@id'});
+    var user = User.get({userId:123}, function() {
+      user.abc = true;
+      user.$save();
+    });
+})
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
