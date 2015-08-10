@@ -5,15 +5,11 @@
     on-refresh="doRefresh()">
   </ion-refresher>
  <ion-slide-box>
-  <ion-slide>
-    <div class="home-banner"><h1>BLUE</h1></div>
+  <ion-slide ng-repeat="imagePath in banners" >
+       <img ng-src="{{imagePath}}">
+     
   </ion-slide>
-  <ion-slide>
-    <div class="home-banner"><h1>YELLOW</h1></div>
-  </ion-slide>
-  <ion-slide on-slide-changed="slideHasChanged(index)">
-    <div class="home-banner"><h1>PINK</h1></div>
-  </ion-slide>
+  
 </ion-slide-box>
 
  

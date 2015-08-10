@@ -1,6 +1,21 @@
 angular.module('starter.controllers', [])
 
-.controller('TestCtrl', function($scope) {})
+.controller('TestCtrl', function($scope,Banner) {
+    $scope.refresh = function(){
+        Banner.success(function(data,status,headers,config){
+            var imgs = data.resultObject;
+            console.log(imgs);
+            var imgPaths = [];
+            for(var img in imgs){
+                imgPaths.push(imgs[img]);
+            }
+         $scope.banners = imgPaths;
+        }).error(function(data,status,headers,config){
+            $scope.banners = [];
+        });
+    }
+    $scope.refresh();
+})
 
 .controller('DashCtrl', function($scope) {})
 

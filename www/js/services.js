@@ -1,10 +1,33 @@
 angular.module('starter.services', ['ngResource'])
-.factory('banner',function($resource){
-    var User = $resource('/user/:userId', {userId:'@id'});
-    var user = User.get({userId:123}, function() {
-      user.abc = true;
-      user.$save();
-    });
+.factory('Banner',function($resource,$http){
+    return $http.jsonp('http://127.0.0.1:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner&callback=JSON_CALLBACK');
+    var imgPaths = [];
+    function refresh(){
+           $http.jsonp('http://127.0.0.1:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner&callback=JSON_CALLBACK')
+        .success(function(data,status,headers,config){
+            var imgs = data.resultObject;
+            console.log(imgs);
+            var imgPaths = [];
+            for(var img in imgs){
+                imgPaths.push(imgs[img]);
+            }
+    }).error(function(data,status,headers,config){imgPaths = null;})
+    }
+   return {
+       refresh:function(){
+           refresh();
+       },
+       all:function(){
+           if(imgPaths.length==0){
+               refresh();
+           }else{
+               
+           return imgPaths;
+           }
+       }
+               
+               
+   }
 })
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
@@ -39,6 +62,7 @@ angular.module('starter.services', ['ngResource'])
 
   return {
     all: function() {
+        
       return chats;
     },
     remove: function(chat) {
