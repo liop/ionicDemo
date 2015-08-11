@@ -1,6 +1,26 @@
 /* Empty. Add your own CSS if you like */
 .home-banner{
     width: 100%;
-    height: 300px;
-    background-color: green;
 }
+.loans-item-first{
+    height: auto;
+    margin: 0px;
+    padding: 0px;
+}
+.loans-item {
+    height: auto;
+    margin: 0px;
+     margin-bottom: 20px;
+}
+.loans-item-more {
+    float: right;
+    height: auto;
+    margin: 0px;
+} 
+
+.loans-item-picc {
+    float: right;
+    font: 12px;
+    height: auto;
+    margin: 0px;
+} 

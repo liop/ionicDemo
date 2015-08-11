@@ -4,22 +4,39 @@
     pulling-text="下拉刷新..."
     on-refresh="doRefresh()">
   </ion-refresher>
- <ion-slide-box class="col" delegate-handle="banner" >
-  <ion-slide class="animate-repeat" ng-repeat="imagePath in banners">
-       <img  class="col" ng-src="{{imagePath}}">
+<!--  Banner -->
+ <ion-slide-box  delegate-handle="banner" >
+  <ion-slide class="home-banner" ng-repeat="imagePath in banners">
+       <img  class="home-banner" ng-src="{{imagePath}}">
   </ion-slide>
 </ion-slide-box>
-
-  <ion-list>
-      <div class="card" ng-repeat=" loan in loans">
+      
+<!-- loan list -->
+  <ion-list class="loans-list">
+      <div class="card loans-item" ng-repeat=" loan in loans" ng-class="{'loans-item-first':$index==0,'loans-item':$index!=0}">
            <div class="item item-divider">
-            {{loan.projectTypeName}}
+               <p>{{loan.projectTypeName}} <a href="#" class="loans-item-more">更多</a></p>
           </div>
           <div class="item item-text-wrap">
-           {{loan.projectName}}
+               
+              <h2>{{loan.projectName}}</h2>{{$data}}
+              <div class="row">
+                   <div class="col col-30">
+                      <h1>{{loan.projectRate}}%</h1>
+                      <h3>预期年化收益</h3>
+                  </div>
+                   <div class="col col-30">
+                      <h1>{{loan.projectRate}}个月</h1>
+                      <h3>期限</h3>
+                  </div>
+                  <div class="col col-30" style="float: right">
+                    <button class="button button-outline button-positive">马上赚钱</button>
+                  </div>
+              </div>
+             
           </div>
             <div class="item item-divider">
-            I'm a Header in a Card!
+              <span class="loans-item-picc"> <i class="icon ion-locked"></i>由PICC承保</span>
           </div>
     </div>
    
