@@ -1,27 +1,40 @@
 angular.module('starter.controllers', [])
 
-.controller('TestCtrl', function($scope,Banner,$ionicSlideBoxDelegate) {
+.controller('TestCtrl', function($scope,$ionicSlideBoxDelegate,Banner,Loans) {
     
     $scope.doRefresh = function(){
-          $scope.banners=[];
+        //banner refresh
+        $scope.banners=[];
         Banner.success(function(data,status,headers,config){
             var imgs = data.resultObject;
-            
             var imgPaths = [];
             for(var img in imgs){
                 imgPaths.push(imgs[img]);
             }
              $scope.banners = imgPaths;
-//            $scope.$timeout(function(){
-//                
-            $ionicSlideBoxDelegate.update();
-//            },300);
+            $ionicSlideBoxDelegate.$getByHandle('banner').update();
             $scope.$broadcast('scroll.refreshComplete');
-             
         }).error(function(data,status,headers,config){
             $scope.banners = [];
             $scope.$broadcast('scroll.refreshComplete');
+            $ionicSlideBoxDelegate.$getByHandle('banner').update();
         });
+        
+        //loans refresh
+       Loans.success(function(data,status,headers,config){
+          var resultDict = data.resultObject;
+           var loansArray = [];
+           for(var typeName in resultDict){
+               var loan = resultDict[typeName];
+               if(!angular.isArray(loan) && loan.projectName.length>2){
+                   loan.projectTypeName = typeName;
+                    loansArray.push(loan);   
+               }
+           }
+           $scope.loans = loansArray;
+//           console.log(loansArray);
+       }).error(function(data,status,headers,config){
+       });
     }
     $scope.banners = [];
     $scope.doRefresh();

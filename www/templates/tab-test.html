@@ -4,19 +4,22 @@
     pulling-text="下拉刷新..."
     on-refresh="doRefresh()">
   </ion-refresher>
- <ion-slide-box class="col">
+ <ion-slide-box class="col" delegate-handle="banner" >
   <ion-slide class="animate-repeat" ng-repeat="imagePath in banners">
        <img  class="col" ng-src="{{imagePath}}">
-     
   </ion-slide>
-  
 </ion-slide-box>
 
- 
   <ion-list>
-          <div class="card">
+      <div class="card" ng-repeat=" loan in loans">
+           <div class="item item-divider">
+            {{loan.projectTypeName}}
+          </div>
           <div class="item item-text-wrap">
-            This is a basic Card which contains an item that has wrapping text.
+           {{loan.projectName}}
+          </div>
+            <div class="item item-divider">
+            I'm a Header in a Card!
           </div>
     </div>
    
