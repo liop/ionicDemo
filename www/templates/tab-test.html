@@ -4,9 +4,9 @@
     pulling-text="下拉刷新..."
     on-refresh="doRefresh()">
   </ion-refresher>
- <ion-slide-box>
-  <ion-slide ng-repeat="imagePath in banners" >
-       <img ng-src="{{imagePath}}">
+ <ion-slide-box class="col">
+  <ion-slide class="animate-repeat" ng-repeat="imagePath in banners">
+       <img  class="col" ng-src="{{imagePath}}">
      
   </ion-slide>
   

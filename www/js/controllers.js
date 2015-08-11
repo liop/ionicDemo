@@ -1,20 +1,30 @@
 angular.module('starter.controllers', [])
 
-.controller('TestCtrl', function($scope,Banner) {
-    $scope.refresh = function(){
+.controller('TestCtrl', function($scope,Banner,$ionicSlideBoxDelegate) {
+    
+    $scope.doRefresh = function(){
+          $scope.banners=[];
         Banner.success(function(data,status,headers,config){
             var imgs = data.resultObject;
-            console.log(imgs);
+            
             var imgPaths = [];
             for(var img in imgs){
                 imgPaths.push(imgs[img]);
             }
-         $scope.banners = imgPaths;
+             $scope.banners = imgPaths;
+//            $scope.$timeout(function(){
+//                
+            $ionicSlideBoxDelegate.update();
+//            },300);
+            $scope.$broadcast('scroll.refreshComplete');
+             
         }).error(function(data,status,headers,config){
             $scope.banners = [];
+            $scope.$broadcast('scroll.refreshComplete');
         });
     }
-    $scope.refresh();
+    $scope.banners = [];
+    $scope.doRefresh();
 })
 
 .controller('DashCtrl', function($scope) {})
