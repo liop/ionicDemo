@@ -1,5 +1,5 @@
 <ion-view view-title="test">
-  <ion-content>
+  <ion-content class="home-body">
       <ion-refresher
     pulling-text="下拉刷新..."
     on-refresh="doRefresh()">
@@ -13,34 +13,69 @@
       
 <!-- loan list -->
   <ion-list class="loans-list">
-      <div class="card loans-item" ng-repeat=" loan in loans" ng-class="{'loans-item-first':$index==0,'loans-item':$index!=0}">
+      <div class="card loans-item" ng-repeat=" loan in loansPart1" ng-class="{'loans-item-first':$index==0,'loans-item':$index!=0}">
            <div class="item item-divider">
                <p>{{loan.projectTypeName}} <a href="#" class="loans-item-more">更多</a></p>
           </div>
           <div class="item item-text-wrap">
-               
               <h2>{{loan.projectName}}</h2>{{$data}}
               <div class="row">
                    <div class="col col-30">
-                      <h1>{{loan.projectRate}}%</h1>
-                      <h3>预期年化收益</h3>
+                         <span class="loans-item-bigText">{{loan.projectRate}}</span> %
+                       </br>
+                       <span class="loans-item-smallText">预期年化收益</span>
                   </div>
                    <div class="col col-30">
-                      <h1>{{loan.projectRate}}个月</h1>
-                      <h3>期限</h3>
+                       <span class="loans-item-bigText">{{loan.projectRate}}</span>个月
+                       </br>
+                      <span class="loans-item-smallText">期限</span>
                   </div>
-                  <div class="col col-30" style="float: right">
+                  <div class="loans-item-picccol col-30 ">
                     <button class="button button-outline button-positive">马上赚钱</button>
                   </div>
               </div>
              
           </div>
             <div class="item item-divider">
-              <span class="loans-item-picc"> <i class="icon ion-locked"></i>由PICC承保</span>
+                <i class="icon ion-social-usd"></i>  {{loan.projectMinNum}}元起投
+                <span class="loans-item-picc"> <i class="icon ion-locked"></i>由PICC承保</span>
           </div>
     </div>
-   
+   <div class="row">
+        <div class="card  col col-50 loans-item">
+            <img class="home-middle-banner-img" src="/img/home_vip.gif">
+        </div>
+        <div class="card col col-50 loans-item">
+           <img  class="home-middle-banner-img" src="/img/home_edu.gif">
+        </div>
+    </div>
   </ion-list>
-      
+  <ion-list class="loans-list">
+    <div class="card loans-item" ng-repeat="loan in loansPart2" ng-class="{'loans-item-first':$index==0,'loans-item':$index!=0}">
+          <div class="item item-text-wrap">
+              <h2>{{loan.projectName}}</h2>{{$data}}
+              <div class="row">
+                   <div class="col col-30">
+                         <span class="loans-item-bigText">{{loan.projectRate}}</span> %
+                       </br>
+                       <span class="loans-item-smallText">预期年化收益</span>
+                  </div>
+                   <div class="col col-30">
+                       <span class="loans-item-bigText">{{loan.projectRate}}</span>个月
+                       </br>
+                      <span class="loans-item-smallText">期限</span>
+                  </div>
+                  <div class="loans-item-picccol col-30 ">
+                    <button class="button button-outline button-positive">马上赚钱</button>
+                  </div>
+              </div>
+             
+          </div>
+            <div class="item item-divider">
+                <i class="icon ion-social-usd"></i>  {{loan.projectMinNum}}元起投
+                <span class="loans-item-picc"> <i class="icon ion-locked"></i>由PICC承保</span>
+          </div>
+    </div>
+  </ion-list>  
   </ion-content>
 </ion-view>

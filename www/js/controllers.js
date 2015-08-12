@@ -23,16 +23,21 @@ angular.module('starter.controllers', [])
         //loans refresh
        Loans.success(function(data,status,headers,config){
           var resultDict = data.resultObject;
-           var loansArray = [];
+           var loansArrayPart1 = [];
+           
            for(var typeName in resultDict){
                var loan = resultDict[typeName];
                if(!angular.isArray(loan) && loan.projectName.length>2){
                    loan.projectTypeName = typeName;
-                    loansArray.push(loan);   
+                    loansArrayPart1.push(loan);   
+               }else if(typeName === "其他"){
+                   $scope.loansPart2 = resultDict[typeName];
+                   
                }
+               
            }
-           $scope.loans = loansArray;
-//           console.log(loansArray);
+           $scope.loansPart1 = loansArrayPart1;
+ 
        }).error(function(data,status,headers,config){
        });
     }

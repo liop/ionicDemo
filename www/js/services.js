@@ -1,9 +1,9 @@
 angular.module('starter.services', ['ngResource'])
 .factory('Banner',function($resource,$http){
-    return $http.jsonp('http://127.0.0.1:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner&callback=JSON_CALLBACK');
+    return $http.jsonp('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner&callback=JSON_CALLBACK');
 })
 .factory('Loans',function($resource,$http){
-    return $http.jsonp('http://127.0.0.1:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/loans&callback=JSON_CALLBACK');
+    return $http.jsonp('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/loans&callback=JSON_CALLBACK');
 })
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
