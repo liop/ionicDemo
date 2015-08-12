@@ -27,6 +27,7 @@ angular.module('starter.controllers', [])
            
            for(var typeName in resultDict){
                var loan = resultDict[typeName];
+//               loan.projectPercent = parseInt(loan.projectPercent);
                if(!angular.isArray(loan) && loan.projectName.length>2){
                    loan.projectTypeName = typeName;
                     loansArrayPart1.push(loan);   

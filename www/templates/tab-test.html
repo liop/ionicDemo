@@ -34,7 +34,10 @@
                     <button class="button button-outline button-positive">马上赚钱</button>
                   </div>
               </div>
-             
+            <div class="progress-b">
+                <div class="green-scoll" ng-class="{'width':loan.projectPercent+'%' }"></div>
+                <div class="green-point" ng-class="{'width':loan.projectPercent}+'%'">{{loan.projectPercent}}%</div>
+              </div>
           </div>
             <div class="item item-divider">
                 <i class="icon ion-social-usd"></i>  {{loan.projectMinNum}}元起投
