@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('TestCtrl', function($scope,$ionicSlideBoxDelegate,Banner,Loans) {
+.controller('HomeCtr', function($scope,$ionicSlideBoxDelegate,Banner,Projects) {
     
     $scope.doRefresh = function(){
         //banner refresh
@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
             for(var img in imgs){
                 imgPaths.push(imgs[img]);
             }
-             $scope.banners = imgPaths;
+            $scope.banners = imgPaths;
             $ionicSlideBoxDelegate.$getByHandle('banner').update();
             $scope.$broadcast('scroll.refreshComplete');
         }).error(function(data,status,headers,config){
@@ -21,23 +21,22 @@ angular.module('starter.controllers', [])
         });
         
         //loans refresh
-       Loans.success(function(data,status,headers,config){
+       Projects.success(function(data,status,headers,config){
           var resultDict = data.resultObject;
-           var loansArrayPart1 = [];
+           console.log(resultDict);
+           var projectsPart1 = [];
            
            for(var typeName in resultDict){
-               var loan = resultDict[typeName];
-//               loan.projectPercent = parseInt(loan.projectPercent);
-               if(!angular.isArray(loan) && loan.projectName.length>2){
-                   loan.projectTypeName = typeName;
-                    loansArrayPart1.push(loan);   
+               var project = resultDict[typeName];
+               if(!angular.isArray(project) && project.projectName.length>2){
+                   project.projectTypeName = typeName;
+                    projectsPart1.push(project);   
                }else if(typeName === "其他"){
-                   $scope.loansPart2 = resultDict[typeName];
+                   $scope.projectsPart2 = resultDict[typeName];
                    
                }
-               
            }
-           $scope.loansPart1 = loansArrayPart1;
+           $scope.projectsPart1 = projectsPart1;
  
        }).error(function(data,status,headers,config){
        });
@@ -45,7 +44,9 @@ angular.module('starter.controllers', [])
     $scope.banners = [];
     $scope.doRefresh();
 })
-
+.controller('ProjectDetailCtrl',function($scope,$stateParams, Projects){
+    $scope.projectID = $stateParams.projectID;
+})
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {
@@ -72,29 +73,4 @@ angular.module('starter.controllers', [])
     enableFriends: true
   };
 })
-//.controller('ToDoListCtrl',function($scope,$ionicActionSheet,$timeout){
-//    $scope.toDoListItems =[{task:'Scuba Diving',status:'not done'},{task:'Climb Everest',status:'not done'}];
-//    $scope.show = function(){
-//    var hideSheet = $ionicActionSheet.show({
-//     buttons: [
-//       { text: '<b>Share</b> This' },
-//       { text: 'Move' }
-//     ],
-//     destructiveText: 'Delete',
-//     titleText: 'Modify your album',
-//     cancelText: 'Cancel',
-//     cancel: function() {
-//          // add cancel code..
-//        },
-//     buttonClicked: function(index) {
-//       return true;
-//     }
-//   });
-//
-//   // For example's sake, hide the sheet after two seconds
-//   $timeout(function() {
-//     hideSheet();
-//   }, 2000);
-//})
-
 ;

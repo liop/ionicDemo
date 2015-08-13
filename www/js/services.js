@@ -1,8 +1,31 @@
 angular.module('starter.services', ['ngResource'])
+.directive('progressB', function() {
+  return {
+    restrict: 'E',
+    scope: {
+      value: '='
+    },
+      transclude:true,
+    template: '<div class="progress-b" >'
+                +'<div class="green-scoll" style="width:{{value}}%"></div>'
+                +'<div class="green-point" style="left:{{value}}%">{{value}}%</div>'
+                +'</div>'
+  }
+})
+.directive('projectBox', function() {
+  return {
+    restrict: 'E',
+    scope: {
+     project: '=info'
+    },
+    transclude:true,
+    templateUrl :"/templates/projectCell.html"
+  }
+})
 .factory('Banner',function($resource,$http){
     return $http.jsonp('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner&callback=JSON_CALLBACK');
 })
-.factory('Loans',function($resource,$http){
+.factory('Projects',function($resource,$http){
     return $http.jsonp('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/loans&callback=JSON_CALLBACK');
 })
 .factory('Chats', function() {

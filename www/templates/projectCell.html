@@ -1,0 +1,26 @@
+ <div class="item item-divider" ng-hide="project.projectTypeName.length<2">
+     <p>{{project.projectTypeName}} <a href="#" class="projects-item-more">更多</a></p>
+ </div>
+<div class="item item-text-wrap">
+    <h2>{{project.projectName}}</h2>{{$data}}
+    <div class="row">
+        <div class="col col-30">
+            <span class="projects-item-bigText">{{project.projectRate}}</span> %
+            </br>
+            <span class="projects-item-smallText">预期年化收益</span>
+        </div>
+        <div class="col col-30">
+            <span class="projects-item-bigText">{{project.projectRate}}</span>个月
+            </br>
+            <span class="projects-item-smallText">期限</span>
+        </div>
+        <div class="projects-item-picccol col-30 ">
+            <button class="button button-outline button-positive">马上赚钱</button>
+        </div>
+    </div>
+    <progress-b ng-attr-value="project.projectPercent"></progress-b>
+</div>
+<div class="item item-divider">
+    <i class="icon ion-social-usd"></i>{{project.projectMinNum}}元起投
+    <span class="project-item-picc"> <i class="icon ion-locked"></i>由PICC承保</span>
+</div>

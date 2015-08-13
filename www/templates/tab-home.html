@@ -1,0 +1,34 @@
+<ion-view view-title="瑞钱宝">
+  <ion-content class="home-body">
+      <ion-refresher
+    pulling-text="下拉刷新..."
+    on-refresh="doRefresh()">
+  </ion-refresher>
+<!--  Banner -->
+ <ion-slide-box  delegate-handle="banner" >
+  <ion-slide class="home-banner" ng-repeat="imagePath in banners">
+       <img  class="home-banner" ng-src="{{imagePath}}">
+  </ion-slide>
+</ion-slide-box>
+      
+<!-- projects list -->
+  <ion-list class="projects-list">
+      <div class="card projects-item" ng-repeat=" project in projectsPart1" ng-class="{'project-item-first':$index==0,'project-item':$index!=0}" href="#/tab/projects/{{project.projectID}}">
+          <project-box info="project"></project-box>
+    </div>
+   <div class="row">
+        <div class="col col-50 home-middle-banner">
+            <img class=" card home-middle-banner-img" src="/img/home_vip.gif">
+        </div>
+        <div class="col col-50 home-middle-banner">
+           <img  class="card home-middle-banner-img" src="/img/home_edu.gif">
+        </div>
+    </div>
+  </ion-list>
+  <ion-list class="loans-list">
+    <div class="card loans-item" ng-repeat="project in projectsPart2" ng-class="{'loans-item-first':$index==0,'loans-item':$index!=0}" href="#/tab/projects/{{project.projectID }}">
+           <project-box info="project" ></project-box> 
+    </div>
+  </ion-list>  
+  </ion-content>
+</ion-view>

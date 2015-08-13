@@ -5,40 +5,43 @@
 .home-banner{
     width: 100%;
 }
-.loans-item-first{
+.projects-item-first{
     height: auto;
     margin: 0px;
     padding: 0px;
 }
-.loans-item {
+.projects-item {
     height: auto;
     margin: 0px;
      margin-bottom: 20px;
 }
-.loans-item-more {
+.projects-item-more {
     float: right;
     height: auto;
     margin: 0px;
 } 
 
-.loans-item-picc {
+.projects-item-picc {
     float: right;
     font: 12px;
     height: auto;
     margin: 0px;
 } 
-.loans-item-bigText {
+.projects-item-bigText {
     font: 40px;
     color: red;
     font-size: 32px;
 }
-.loans-item-smallText{
+.projects-item-smallText{
      font-size: 12px;
     text-align: center;
     padding-left: 10px;
+    
 }
 .home-middle-banner{
- padding: 0px;   
+ padding-left: 2px;
+    margin:0px;
+    
 }
 .home-middle-banner-img{
      padding: 0px;
@@ -47,12 +50,12 @@
     height: 100%;
 }
 
-.progress-b{position: relative; margin:10px 0 20px; width:90%;}
-.progress-b,.green-scoll{background-color: #e8e9ec;height: 4px; border-radius: 4px;}
+.progress-b{position: relative; margin:10px 0 10px; width:100%;background-color: #e8e9ec;}
+.progress-b,.green-scoll{height: 4px; border-radius: 4px;}
 .green-scoll{border-radius: 4px 0 0 4px; width: 50%; background-color: #81c96f;}
-.green-point{ width: 24px;height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #81c96f;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 6px;}
+.green-point{ width: 24px;height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #81c96f;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 12px;}
 
 .progress-b,.grey-scoll{background-color: #e8e9ec;height: 4px; border-radius: 4px;}
 .grey-scoll{border-radius: 4px 0 0 4px; width: 50%; background-color: #aaa;}
-.grey-point{ width: 24px; height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #aaa;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 1rem;}
+.grey-point{ width: 24px; height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #aaa;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 12px;}
 
