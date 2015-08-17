@@ -33,7 +33,6 @@ angular.module('starter.controllers', [])
                     projectsPart1.push(project);   
                }else if(typeName === "其他"){
                    $scope.projectsPart2 = resultDict[typeName];
-                   
                }
            }
            $scope.projectsPart1 = projectsPart1;
@@ -44,8 +43,37 @@ angular.module('starter.controllers', [])
     $scope.banners = [];
     $scope.doRefresh();
 })
-.controller('ProjectDetailCtrl',function($scope,$stateParams, Projects){
-    $scope.projectID = $stateParams.projectID;
+.controller('ProjectDetailCtrl',function($scope,$stateParams,Projects, ProjectDetail){
+    var projectID = $stateParams.projectID;
+    ProjectDetail.detail(projectID).success(function(data,status,headers,config){
+       console.log(data);
+        $scope.project = data.resultObject;
+         $scope.preIncome = $scope.project.income ;
+    }).error(function(data,status,headers,config){
+        
+    });
+    $scope.investModel=10000.00;
+   
+    $scope.onMinusClicked = function(){
+        if($scope.investModel > 0){
+            $scope.investModel -= 1000.00;
+            $scope.preIncome = $scope.project.income  *($scope.investModel/10000); 
+        }
+    }
+    $scope.onPlusClicked = function(){
+        if($scope.investModel < $scope.project.projectBalance){
+            $scope.investModel += 1000.00;
+            $scope.preIncome = $scope.project.income  *($scope.investModel/10000); 
+        }
+        
+    }
+    
+      
+})
+
+.controller('ProjectMoreCtrl', function($scope) {
+    
+    
 })
 .controller('DashCtrl', function($scope) {})
 

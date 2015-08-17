@@ -13,7 +13,7 @@
       
 <!-- projects list -->
   <ion-list class="projects-list">
-      <div class="card projects-item" ng-repeat=" project in projectsPart1" ng-class="{'project-item-first':$index==0,'project-item':$index!=0}" href="#/tab/projects/{{project.projectID}}">
+      <div class=" card projects-item" ng-repeat=" project in projectsPart1" ng-class="{'project-item-first':$index==0,'project-item':$index!=0}" >
           <project-box info="project"></project-box>
     </div>
    <div class="row">
@@ -25,8 +25,8 @@
         </div>
     </div>
   </ion-list>
-  <ion-list class="loans-list">
-    <div class="card loans-item" ng-repeat="project in projectsPart2" ng-class="{'loans-item-first':$index==0,'loans-item':$index!=0}" href="#/tab/projects/{{project.projectID }}">
+  <ion-list class="projects-list">
+    <div class="card projects-item" ng-repeat="project in projectsPart2" ng-class="{'project-item-first':$index==0,'loans-item':$index!=0}">
            <project-box info="project" ></project-box> 
     </div>
   </ion-list>  

@@ -38,6 +38,12 @@
     padding-left: 10px;
     
 }
+.projects-item-smallText-Cred{
+     font-size: 12px;
+    text-align: center;
+     
+    
+}
 .home-middle-banner{
  padding-left: 2px;
     margin:0px;
@@ -59,3 +65,24 @@
 .grey-scoll{border-radius: 4px 0 0 4px; width: 50%; background-color: #aaa;}
 .grey-point{ width: 24px; height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #aaa;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 12px;}
 
+.tableview-cell{
+    width: 100%;
+    height: 44px;
+    background-color: white;
+}
+
+.project-detail-list {
+    padding-top: 20px;
+    background-color: lightgray;
+}
+.project-detail-footer-caculate {
+    align-content: center;
+    height: 30px;
+    margin-left:auto; 
+    margin-right:auto;
+ 
+}
+
+.project-detail-input {
+    display: inline;
+}
