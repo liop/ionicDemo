@@ -1,15 +1,27 @@
 angular.module('controls', ['ngResource'])
-.directive('progressB', function() {
+.directive('progressB', function($interval) {
+   function link(scope, element, attrs) {
+    var format,
+        timeoutId;
+        
+    scope.$watch(scope.value,function(value){
+        console.log(scope.value);
+    });
+  } 
   return {
     restrict: 'E',
     scope: {
       value: '='
     },
-      transclude:true,
-    template: '<div class="progress-b" >'
-                +'<div class="green-scoll" style="width:{{value}}%"></div>'
-                +'<div class="green-point" style="left:{{value}}%">{{value}}%</div>'
-                +'</div>'
+    transclude:true,
+    template: function(elem,attr){
+        
+        return '<div class="progress-b" value="{{value}}">'
+                +'<div style="width:{{value}}%"></div>'
+                +'<div style="left:{{value-3}}%">{{value}}%</div>'
+                +'</div>';
+    }, 
+      link:link
   }
 })
 .directive('projectBox', function() {

@@ -57,13 +57,13 @@
 }
 
 .progress-b{position: relative; margin:10px 0 10px; width:100%;background-color: #e8e9ec;}
-.progress-b,.green-scoll{height: 4px; border-radius: 4px;}
-.green-scoll{border-radius: 4px 0 0 4px; width: 50%; background-color: #81c96f;}
+.progress-b,.green-scroll{height: 4px; border-radius: 4px;}
+.green-scroll{border-radius: 4px 0 0 4px; width: 50%; background-color: #81c96f;}
 .green-point{ width: 24px;height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #81c96f;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 12px;}
 
-.progress-b,.grey-scoll{background-color: #e8e9ec;height: 4px; border-radius: 4px;}
-.grey-scoll{border-radius: 4px 0 0 4px; width: 50%; background-color: #aaa;}
-.grey-point{ width: 24px; height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #aaa;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 12px;}
+.progress-b,.gray-scroll{background-color: #e8e9ec;height: 4px; border-radius: 4px;}
+.gray-scroll{border-radius: 4px 0 0 4px; width: 50%; background-color: #aaa;}
+.gray-point{ width: 24px; height: 24px; line-height: 24px; text-align:center; border-radius: 24px; display: block;background-color: #aaa;color: #fff;position: absolute;left: 50%; top:-9px; font-size: 12px;}
 
 .tableview-cell{
     width: 100%;
@@ -85,4 +85,21 @@
 
 .project-detail-input {
     display: inline;
+}
+/*project more*/
+.slider-slide h3{
+color:#fff;
+margin-top:10px;
+}
+.scroll{
+height:100%;
+}
+ .tabbed-slidebox .tsb-icons:after{
+display:none;
+}
+.project-more-record-right{
+     color: skyblue;
+    float: right;
+    right: 15px;
+    font-size: 20px;
 }

@@ -1,15 +1,53 @@
 <ion-view view-title="项目更多详情">
-  <ion-content class="padding-top">
-     <div class="tabs  tabs-icon-left">
-  <a class="tab-item">
-    Homepadding-top
-  </a>
-  <a class="tab-item">
-    Favorites
-  </a>
-  <a class="tab-item">
-    Settings
-  </a>
-</div>
-  </ion-content>
+<ion-content class="pading-top">
+    <div title="产品描述">
+        <h4>产品描述</h4>
+        <p>{{projectMore.m.projectDec}}</p>
+             <h4>资金用途</h4>
+        <p>{{projectMore.m.moneyPurpose }}</p>
+             <h4>还款来源</h4>
+        <p>{{projectMore.m.repaySource}}</p>
+    </div>
+    
+    <div title="产品详情">
+        <h4>企业背景</h4>
+        <p>{{projectMore.n.enterpriseBack }}</p>
+             <h4>营业范围</h4>
+        <p>{{projectMore.n.businessScope  }}</p>
+             <h4>经营状况</h4>
+        <p>{{projectMore.n.operatingConditions }}</p>
+    </div>
+    
+      <div title="安全保障">
+        <h4>保障措施一</h4>
+        <p>{{projectMore.x["保障措施一"] }}</p>
+             <h4保障措施二</h4>
+        <p>{{projectMore.x["保障措施二"]  }}</p>
+             <h4>保障措施三</h4>
+          <h5> 担保机构 </h5>
+        <p>{{projectMore.x.guarantee }}</p>
+           <h5> 担保机构简介 </h5>
+        <p>{{projectMore.x.guaranteeDesc}}</p>
+           <h5> 担保机构意见 </h5>
+        <p>{{projectMore.x.guaranteeComment}}</p>
+           <h5> 抵押物质信息 </h5>
+        <p>{{projectMore.x.guarantee}}</p>
+           <h5> 涉诉信息 </h5>
+        <p>{{projectMore.x.mortgageInfo}}</p>
+           <h5> 风险控制措施 </h5>
+        <p>{{projectMore.x.riskControlInfo}}</p>
+    </div>
+    <div title="最新投资">
+         <ul class="list project-detail-list" >
+             <li class="item" ng-repeat=" record in projectMore.rs">
+             {{record.name}}
+            <span class="project-more-record-right">
+                 {{record.amount}}元
+                 </span>     
+             
+             </li>
+    
+    </div>
+    
+    </ion-content>
 </ion-view>

@@ -64,17 +64,23 @@ angular.module('starter.controllers', [])
         if($scope.investModel < $scope.project.projectBalance){
             $scope.investModel += 1000.00;
             $scope.preIncome = $scope.project.income  *($scope.investModel/10000); 
-        }
-        
+        }   
     }
-    
-      
 })
 
-.controller('ProjectMoreCtrl', function($scope) {
+.controller('ProjectMoreCtrl', ['$rootScope', "$scope",
+"$stateParams", "$q", "$location", "$window", '$timeout','ProjectMore',function($rootScope, $scope, $stateParams, $q, $location, $window,$timeout,ProjectMore){
+     var projectID = $stateParams.projectID;
+    ProjectMore.detail(projectID).success(function(data,status,headers,config){
+       console.log(data);
+        $scope.projectMore = data.resultObject;
+         
+    }).error(function(data,status,headers,config){
+        
+    });
     
-    
-})
+}
+])
 .controller('DashCtrl', function($scope) {})
 
 .controller('ChatsCtrl', function($scope, Chats) {

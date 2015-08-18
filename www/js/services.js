@@ -14,6 +14,15 @@ angular.module('starter.services', ['ngResource'])
        }
     };
 })
+.factory('ProjectMore',function($resource,$http){
+    return {
+       detail:function(projectID){
+           var param = {"k":projectID};
+          return  $http.post('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/investMore',param);
+           
+       }
+    };
+})
 .factory('Chats', function() {
   // Might use a resource here that returns a JSON array
 
