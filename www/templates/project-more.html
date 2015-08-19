@@ -1,6 +1,12 @@
 <ion-view view-title="项目更多详情">
 <ion-content class="pading-top">
-    <div title="产品描述">
+<ul class="nav nav-tabs">
+  <li role="presentation" ng-class="{active:currentSelectedIndex==0}" ><a href="" ng-click="tasSelected(0)">产品描述</a></li>
+  <li role="presentation" ng-class="{active:currentSelectedIndex==1}" ><a href="" ng-click="tasSelected(1)">产品详情</a></li>
+  <li role="presentation" ng-class="{active:currentSelectedIndex==2}"><a href="" ng-click="tasSelected(2)">安全保障</a></li>
+     <li role="presentation" ng-class="{active:currentSelectedIndex==3}"><a href="" ng-click="tasSelected(3)">最新投资</a></li>
+</ul>
+    <div id="产品描述" ng-hide="currentSelectedIndex!=0">
         <h4>产品描述</h4>
         <p>{{projectMore.m.projectDec}}</p>
              <h4>资金用途</h4>
@@ -9,7 +15,7 @@
         <p>{{projectMore.m.repaySource}}</p>
     </div>
     
-    <div title="产品详情">
+    <div id="产品详情" ng-hide="currentSelectedIndex!=1">
         <h4>企业背景</h4>
         <p>{{projectMore.n.enterpriseBack }}</p>
              <h4>营业范围</h4>
@@ -18,7 +24,7 @@
         <p>{{projectMore.n.operatingConditions }}</p>
     </div>
     
-      <div title="安全保障">
+      <div name="安全保障" ng-hide="currentSelectedIndex!=2">
         <h4>保障措施一</h4>
         <p>{{projectMore.x["保障措施一"] }}</p>
              <h4保障措施二</h4>
@@ -37,7 +43,8 @@
            <h5> 风险控制措施 </h5>
         <p>{{projectMore.x.riskControlInfo}}</p>
     </div>
-    <div title="最新投资">
+    <div name="最新投资" ng-hide="currentSelectedIndex!=3">
+        <h4>最新{{projectMore.rs.length}}人投资</h4>
          <ul class="list project-detail-list" >
              <li class="item" ng-repeat=" record in projectMore.rs">
              {{record.name}}

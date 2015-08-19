@@ -1,4 +1,5 @@
 angular.module('starter.services', ['ngResource'])
+ 
 .factory('Banner',function($resource,$http){
     return $http.get('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner');
 })
@@ -17,9 +18,16 @@ angular.module('starter.services', ['ngResource'])
 .factory('ProjectMore',function($resource,$http){
     return {
        detail:function(projectID){
-           var param = {"k":projectID};
+          var param = {"k":projectID};
           return  $http.post('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/investMore',param);
-           
+       }
+    };
+})
+.factory('ProjectInsure',function($resource,$http){
+    return {
+       detail:function(projectID){
+            var param = {"k":projectID,"u":"li",p:"12345678"};
+            return  $http.post('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/invest',param);
        }
     };
 })

@@ -8,5 +8,11 @@
   },
   "dependencies": {
     "ionic-material": "~0.4.2"
+  },
+  "resolutions": {
+    "angular": "1.4.4",
+    "ionic": "~1.1.0",
+    "angular-animate": "1.4.3",
+    "angular-sanitize": "1.4.3"
   }
 }

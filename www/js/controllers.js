@@ -78,7 +78,26 @@ angular.module('starter.controllers', [])
     }).error(function(data,status,headers,config){
         
     });
-    
+    $scope.currentSelectedIndex=0;
+    $scope.tasSelected = function(index){
+         $scope.currentSelectedIndex = index;
+    }
+}
+])
+.controller('ProjectInsureCtrl', ['$rootScope', "$scope",
+"$stateParams", "$q", "$location", "$window", '$timeout','ProjectMore',function($rootScope, $scope, $stateParams, $q, $location, $window,$timeout,ProjectMore){
+    var projectID = $stateParams.projectID;
+    ProjectMore.detail(projectID).success(function(data,status,headers,config){
+       console.log(data);
+        $scope.projectMore = data.resultObject;
+         
+    }).error(function(data,status,headers,config){
+        
+    });
+    $scope.currentSelectedIndex=0;
+    $scope.tasSelected = function(index){
+         $scope.currentSelectedIndex = index;
+    }
 }
 ])
 .controller('DashCtrl', function($scope) {})
