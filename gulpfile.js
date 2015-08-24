@@ -8,7 +8,8 @@ var rename = require('gulp-rename');
 var sh = require('shelljs');
 
 var paths = {
-  sass: ['./scss/**/*.scss']
+  sass: ['./scss/**/*.scss'],
+
 };
 
 gulp.task('default', ['sass']);
@@ -49,4 +50,16 @@ gulp.task('git-check', function(done) {
     process.exit(1);
   }
   done();
+});
+
+var debugPaths = {
+  xcode:'./platforms/ios/www/',
+  iosSim:'/Users/lizhengfeng/Library/Developer/CoreSimulator/Devices/3DEC5C43-83FE-451C-A86C-27DE9E000171/data/Containers/Bundle/Application/021EDCD1-060D-454D-8F6C-837A1A885F51/rqt.app/www/'
+}
+gulp.task('checkapp',function(done){
+    gulp.watch(['./www/*','./www/*/*'],function(c){
+        console.log(c);
+        gulp.src('./www/').pipe(gulp.dest(debugPaths.xcode)).pipe(gulp.dest(debugPaths.iosSim));
+           
+    });
 });

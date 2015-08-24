@@ -6,14 +6,15 @@
     width: 100%;
 }
 .projects-item-first{
-    height: auto;
-    margin: 0px;
     padding: 0px;
 }
 .projects-item {
     height: auto;
     margin: 0px;
      margin-bottom: 20px;
+}
+.projects-item-last {
+     margin-bottom: 0px;
 }
 .projects-item-more {
     float: right;

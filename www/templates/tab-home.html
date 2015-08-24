@@ -13,15 +13,15 @@
       
 <!-- projects list -->
   <ion-list class="projects-list">
-      <div class=" card projects-item" ng-repeat=" project in projectsPart1" ng-class="{'project-item-first':$index==0,'project-item':$index!=0}" >
+      <div class=" card projects-item" ng-repeat=" project in projectsPart1"  class="projects-item" ng-class="{'project-item-first':$index==0,'project-item-last':$index==projectsPart1.length-1}" >
           <project-box info="project"></project-box>
     </div>
    <div class="row">
         <div class="col col-50 home-middle-banner">
-            <img class=" card home-middle-banner-img" src="/img/home_vip.gif">
+            <img class=" card home-middle-banner-img" src="img/home_vip.gif">
         </div>
         <div class="col col-50 home-middle-banner">
-           <img  class="card home-middle-banner-img" src="/img/home_edu.gif">
+           <img  class="card home-middle-banner-img" src="img/home_edu.gif">
         </div>
     </div>
   </ion-list>

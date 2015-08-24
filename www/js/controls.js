@@ -17,8 +17,8 @@ angular.module('controls', ['ngResource'])
     template: function(elem,attr){
         
         return '<div class="progress-b" value="{{value}}">'
-                +'<div style="width:{{value}}%"></div>'
-                +'<div style="left:{{value-3}}%">{{value}}%</div>'
+                +'<div class="green-scroll" style="width:{{value}}%"></div>'
+                +'<div class="green-point" style="left:{{value}}%">{{value}}%</div>'
                 +'</div>';
     }, 
       link:link
@@ -31,7 +31,7 @@ angular.module('controls', ['ngResource'])
      project: '=info'
     },
     transclude:true,
-    templateUrl :"/templates/projectCell.html"
+    templateUrl :"templates/projectCell.html"
   }
 })
 .directive('hideTabs',function($rootScope){

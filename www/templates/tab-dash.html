@@ -1,27 +1,58 @@
 <ion-view view-title="Dashboard" >
-    <div class="list card">
-      <div class="item item-divider">Recent Updates</div>
-      <div class="item item-body">
-        <div>
-          There is a fire in <b>sector 3</b>
-        </div>
-      </div>
+    <ion-content class="padding">
+     <ion-slide-box  delegate-handle="banner" >
+  <ion-slide class="home-banner" ng-repeat="banner in banners">
+       <img  class="home-banner" ng-src="{{banner.imgSrc}}">
+  </ion-slide>
+</ion-slide-box>
     </div>
-    <div class="list card">
-      <div class="item item-divider">Health</div>
-      <div class="item item-body">
-        <div>
-          You ate an apple today!
+    <div>
+    <img src="img/ionic.png" style="widht:30px;height:30px;float:left;">
+        <div  >
+         <h4 style="display:block;text-align:center">[JR001一期]北京某餐饮公司，资金周转</h4>
+            <li class="row" style="margin-left:20px;margin-right:20px">
+                <span class="col col-33" >起投 <i style="color:#808003">100元   </i></span> 
+                <span class="col col-33" >期限 <i style="color:#808003">12个月   </i></span>
+                <span class="col col-33" >剩余金额 <i style="color:#808003">2,300,00</i>元  </span>
+            </li>
+           <div style="display:block;text-align:center">
+               <label style="color:#7b7b00;font-size:7rem;line-height: 1;"> 9.0%</label>
+                <br>
+            <label  style="color:rgb(142, 142, 0);">预计年化收益</label><br>
+            <button class="button button-block  button-outline button-calm     "  >10点开抢</button>
+            </div> 
+         
         </div>
-      </div>
+   
     </div>
-    <div class="list card" >
-      <div class="item item-divider">Upcoming</div>
-      <div class="item item-body">
-        <div>
-          You have <b>29</b> meetings on your calendar tomorrow.
+    <ion-list class="list">
+    <ion-item >
+            <img src="img/ionic.png" style="widht:30px;height:30px;float:left">
+        <div  style="margin: 00px 00px 20px 40px;">
+            <h5>优选计划</h5>
+            <p>定期理财，复利投资，最高年化15.5%</p>
         </div>
-      </div>
-    </div>
-  
+           <i class="ion-ios-arrow-right" style="position: absolute; right:5px;top:40%;margin-top:0px;display:block"></i>
+        </ion-item>
+        
+         <ion-item >
+            <img src="img/ionic.png" style="widht:30px;height:30px;float:left">
+        <div  style="margin: 00px 00px 20px 40px;">
+            <h5>优选计划</h5>
+            <p>定期理财，复利投资，最高年化15.5%</p>
+        </div>
+           <i class="ion-ios-arrow-right" style="position: absolute; right:5px;top:40%;margin-top:0px;display:block"></i>
+        </ion-item>
+        
+         <ion-item >
+            <img src="img/ionic.png" style="widht:30px;height:30px;float:left">
+        <div  style="margin: 00px 00px 20px 40px;">
+            <h5>优选计划</h5>
+            <p>定期理财，复利投资，最高年化15.5%</p>
+        </div>
+           <i class="ion-ios-arrow-right" style="position: absolute; right:5px;top:40%;margin-top:0px;display:block"></i>
+        </ion-item>
+    
+    </ion-list>
+  </ion-content>
 </ion-view>

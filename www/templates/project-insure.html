@@ -1,71 +1,28 @@
 <ion-view view-title="项目详情">
-  <ion-content class="padding-top">
-      <ion-list class="projects-list">
-    <div class="item item-text-wrap" href="#/tab/projects/{{project.projectID}}">
-        <h2>{{project.projectName}}</h2>{{$data}}
-        <div class="row">
-            <div class="col col-25">
-                <span class="projects-item-bigText">{{project.loanRate }}</span> %
-                </br>
-                <span class="projects-item-smallText">预期年化收益</span>
-            </div>
-            <div class="col col-25">
-                <span class="projects-item-bigText">{{project.loanPeriod }}</span>个月
-                </br>
-                <span class="projects-item-smallText">期限</span>
-            </div>
-          <div class="col col-25">
-                <span class="projects-item-bigText">{{project.projectMinNum}}  </span>元
-                </br>
-                <span class="projects-item-smallText">起投金额</span>
-            </div>
-            <div class="col col-25">
-                <span class="projects-item-bigText">{{project.userCreditLevel}}</span>
-                </br>
-                <span class="projects-item-smallText-Cred">信用评价</span>
-            </div>
-        </div>
-        <progress-b ng-attr-value="project.projectPercent"></progress-b>
-    </div>
-    <div class="item tableview-cell">
-        <div class="projects-item-picc"> <i class="icon ion-locked"></i>由PICC承保</div>
-    </div>
-    <a class="item tableview-cell" href="#/tab/projectMore/{{project.projectID}}">
-        <span class="projects-item-cell-import">查看详情</span>  <i class="projects-item-picc ion-chevron-right"></i> 
-    </a>
-     
-  </ion-list>  
-    <ul class="list project-detail-list">
+  <ion-content >
+      <h4>{{projectInsure.projectName}}</h4>
+ 
+    <ul class="list">
     <li class="item">
-        <span >  剩余金额</span><span class="projects-item-picc">{{project.projectBalance}}元</span>
+        <span >  剩余金额</span><span class="projects-item-picc">{{projectInsure.balance}}元</span>
         </li>
 <li class="item">
-        <label > 还款方式</span><span class="projects-item-picc">{{project.repaymentWay}}</label>
+        <span > 账户余额</span><span class="projects-item-picc">{{projectInsure.amountBalance }}</span>
         </li>
 <li class="item">
-        <span >  到账时间</span><span class="projects-item-picc">T+0</span>
-        </li>
-        
-<li class="item">
-        <span >  预期投资收益</span><span class="projects-item-picc"> {{preIncome|FloatFormat}}元</span>
+        <span >  预期年化收益</span><span class="projects-item-picc">{{projectInsure. loanRate}}</span>
         </li>
         
 <li class="item">
-        <span   >  投资金额</span>
-    <span  class="projects-item-picc" style="width:235px">
-    <button class="ion-minus-round" style="display=inline;" ng-click="onMinusClicked()"></button> 
-    <input class="project-detail-input"  ng-model="investModel"   placeholder="10000.00">
-    <button class="ion-plus-round"  ng-click="onPlusClicked()"></button>
-    元
-    </span>
+        <span >投资金额</span><span class="projects-item-picc">   <input class="project-detail-input" ng-model="investModel" placeholder="10000.00"> 元</span>
         </li>
 </ul>
 
 <div class="tableview-footer">
-    <button class="button button-block button-assertive" >马上赚钱</button>
-    </br>
-    <button class="button button-block button-energized ">客服</button>
-
+    <a class="button button-block button-assertive" href="#/tab/projectPay/{{projectInsure.projectID}}" >去支付</a>
+    
+     
 </div>
+     
   </ion-content>
 </ion-view>

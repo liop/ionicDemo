@@ -1,7 +1,16 @@
 angular.module('starter.services', ['ngResource'])
+
+.constant('BASEURL',"")
  
-.factory('Banner',function($resource,$http){
+ .factory('Banner',function($resource,$http){
     return $http.get('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner');
+   
+//    return $http.post('http://123.57.77.184:8080/app/controller/banner');
+})
+.factory('Banner2',function($resource,$http){
+//    return $http.get('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/banner');
+   
+    return $http.post('http://123.57.77.184:8080/app/controller/banner');
 })
 .factory('Projects',function($resource,$http){
     return $http.get('http://10.1.250.35:3000/proxy?url=http://123.57.77.184:8080/rqt/appasyn28/loans');

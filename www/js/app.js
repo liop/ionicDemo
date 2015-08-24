@@ -20,7 +20,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','p
       // org.apache.cordova.statusbar required
       StatusBar.styleLightContent();
     }
-      console.log($scope);
   });
 })
 
@@ -74,6 +73,15 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','p
         'tab-home': {
           templateUrl: 'templates/project-insure.html',
           controller: 'ProjectInsureCtrl'
+        }
+      }
+    })
+   .state('tab.project-pay', {
+      url: '/projectPay/:projectID',
+      views: {
+        'tab-home': {
+          templateUrl: 'templates/project-pay.html',
+          controller: 'ProjectPayCtrl'
         }
       }
     })

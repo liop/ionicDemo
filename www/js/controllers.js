@@ -45,14 +45,19 @@ angular.module('starter.controllers', [])
 })
 .controller('ProjectDetailCtrl',function($scope,$stateParams,Projects, ProjectDetail){
     var projectID = $stateParams.projectID;
+    console.log($stateParams);
+    $scope.$watch($stateParams,function(key){
+        console.log(key);
+    })
     ProjectDetail.detail(projectID).success(function(data,status,headers,config){
        console.log(data);
         $scope.project = data.resultObject;
          $scope.preIncome = $scope.project.income ;
+         
     }).error(function(data,status,headers,config){
         
     });
-    $scope.investModel=10000.00;
+     
    
     $scope.onMinusClicked = function(){
         if($scope.investModel > 0){
@@ -85,22 +90,52 @@ angular.module('starter.controllers', [])
 }
 ])
 .controller('ProjectInsureCtrl', ['$rootScope', "$scope",
-"$stateParams", "$q", "$location", "$window", '$timeout','ProjectMore',function($rootScope, $scope, $stateParams, $q, $location, $window,$timeout,ProjectMore){
+"$stateParams", "$q", "$location", "$window", '$timeout','ProjectInsure',function($rootScope, $scope, $stateParams, $q, $location, $window,$timeout,ProjectInsure){
     var projectID = $stateParams.projectID;
-    ProjectMore.detail(projectID).success(function(data,status,headers,config){
+    ProjectInsure.detail(projectID).success(function(data,status,headers,config){
        console.log(data);
-        $scope.projectMore = data.resultObject;
+        $scope.projectInsure = data.resultObject;
          
     }).error(function(data,status,headers,config){
         
     });
-    $scope.currentSelectedIndex=0;
-    $scope.tasSelected = function(index){
-         $scope.currentSelectedIndex = index;
-    }
+   
 }
 ])
-.controller('DashCtrl', function($scope) {})
+.controller('ProjectPayCtrl', ['$rootScope', "$scope",
+"$stateParams", "$q", "$location", "$window", '$timeout','ProjectInsure',function($rootScope, $scope, $stateParams, $q, $location, $window,$timeout,ProjectInsure){
+    var projectID = $stateParams.projectID;
+    ProjectInsure.detail(projectID).success(function(data,status,headers,config){
+       console.log(data);
+        $scope.projectInsure = data.resultObject;
+         
+    }).error(function(data,status,headers,config){
+        
+    });
+   
+}
+])
+.controller('DashCtrl', function($scope,$ionicSlideBoxDelegate,Banner2) {
+     
+    Banner2.success(function(data,status,headers,config){
+        var imgs = data.resultObject;
+        console.log(data);
+        var imgPaths = [];
+        for(var img in imgs){
+            imgPaths.push(imgs[img]);
+        }
+        $scope.banners = imgPaths;
+        $ionicSlideBoxDelegate.$getByHandle('banner').update();
+        $scope.$broadcast('scroll.refreshComplete');
+    }).error(function(data,status,headers,config){
+        $scope.banners = [];
+        console.log(data);
+        $scope.$broadcast('scroll.refreshComplete');
+        $ionicSlideBoxDelegate.$getByHandle('banner').update();
+    });
+
+
+})
 
 .controller('ChatsCtrl', function($scope, Chats) {
   // With the new view caching in Ionic, Controllers are only called
