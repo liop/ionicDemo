@@ -30,60 +30,39 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','p
   // Set up the various states which the app can be in.
   // Each state's controller can be found in controllers.js
     
-   
-  $stateProvider
-
+  
+  
+$stateProvider
   // setup an abstract state for the tabs directive
     .state('tab', {
     url: '/tab',
     abstract: true,
     templateUrl: 'templates/tabs.html'
   })
-
-   .state('tab.home', {
+  .state('home', {
     url: '/home',
-    views: {
-      'tab-home': {
-        templateUrl: 'templates/tab-home.html',
-        controller: 'HomeCtr'
-      }
-    }
+    templateUrl: 'templates/tab-home.html',
+    controller: 'HomeCtr'
   })
-   .state('tab.project-detail', {
+   .state('project-detail', {
       url: '/projectDetail/:projectID',
-      views: {
-        'tab-home': {
-          templateUrl: 'templates/project-detail.html',
-          controller: 'ProjectDetailCtrl'
-        }
-      }
+      templateUrl: 'templates/project-detail.html',
+      controller: 'ProjectDetailCtrl'
     })
-  .state('tab.project-more', {
+  .state('project-more', {
       url: '/projectMore/:projectID',
-      views: {
-        'tab-home': {
-          templateUrl: 'templates/project-more.html',
-          controller: 'ProjectMoreCtrl'
-        }
-      }
+      templateUrl: 'templates/project-more.html',
+      controller: 'ProjectMoreCtrl'
     })
-  .state('tab.project-insure', {
-      url: '/projectInsure/:projectID',
-      views: {
-        'tab-home': {
-          templateUrl: 'templates/project-insure.html',
-          controller: 'ProjectInsureCtrl'
-        }
-      }
+  .state('project-insure', {
+      url: '/projectInsure/:projectID', 
+      templateUrl: 'templates/project-insure.html',
+      controller: 'ProjectInsureCtrl'
     })
-   .state('tab.project-pay', {
+   .state('project-pay', {
       url: '/projectPay/:projectID',
-      views: {
-        'tab-home': {
-          templateUrl: 'templates/project-pay.html',
-          controller: 'ProjectPayCtrl'
-        }
-      }
+      templateUrl: 'templates/project-pay.html',
+      controller: 'ProjectPayCtrl'
     })
   // Each tab has its own nav history stack:
 
@@ -125,8 +104,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','p
       }
     }
   });
-    
+     
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/tab/home');
-  
+  $urlRouterProvider.otherwise('/home');
+  console.log($urlRouterProvider.$$url);
 }]);

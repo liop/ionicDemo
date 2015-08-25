@@ -165,7 +165,7 @@ function($state, $ionicConfig) {
         transclude($scope, function(clone) {
           $element.append(clone);
         });
-
+ 
         var viewData = navViewCtrl.init();
 
         // listen for $stateChangeSuccess
@@ -197,6 +197,6 @@ function($state, $ionicConfig) {
         }
 
       };
-    }
+    }010 51954138
   };
 }]);

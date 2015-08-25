@@ -28,6 +28,8 @@ angular.module('starter.controllers', [])
            
            for(var typeName in resultDict){
                var project = resultDict[typeName];
+               
+                
                if(!angular.isArray(project) && project.projectName.length>2){
                    project.projectTypeName = typeName;
                     projectsPart1.push(project);   

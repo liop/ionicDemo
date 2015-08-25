@@ -1,7 +1,7 @@
 <ion-view view-title="项目详情">
   <ion-content class="padding-top">
       <ion-list class="projects-list">
-    <div class="item item-text-wrap" href="#/tab/projects/{{project.projectID}}">
+    <div class="item item-text-wrap" href="#/projects/{{project.projectID}}">
         <h2>{{project.projectName}}</h2>{{$data}}
         <div class="row">
             <div class="col col-25">
@@ -30,7 +30,7 @@
     <div class="item tableview-cell">
         <div class="projects-item-picc"> <i class="icon ion-locked"></i>由PICC承保</div>
     </div>
-    <a class="item tableview-cell" href="#/tab/projectMore/{{project.projectID}}">
+    <a class="item tableview-cell" href="#/projectMore/{{project.projectID}}">
         <span class="projects-item-cell-import">查看详情</span>  <i class="projects-item-picc ion-chevron-right"></i> 
     </a>
      
@@ -62,7 +62,7 @@
 </ul>
 
 <div class="tableview-footer">
-    <a class="button button-block button-assertive" href="#/tab/projectInsure/{{project.projectID}}" >马上赚钱</a>
+    <a class="button button-block button-assertive" href="#/projectInsure/{{project.projectID}}" >马上赚钱</a>
     </br>
     <button class="button button-block button-energized ">客服</button>
 

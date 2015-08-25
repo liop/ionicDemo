@@ -3,7 +3,7 @@
          <p>{{project.projectTypeName}} <a href="#" class="projects-item-more">更多</a></p>
      </div>
  
-    <a class="item item-text-wrap" href="#/tab/projectDetail/{{project.projectID}}">
+    <a class="item item-text-wrap" href="#/projectDetail/{{project.projectID}}">
         <h2>{{project.projectName}}</h2>{{$data}}
         <div class="row">
             <div class="col col-30">
@@ -12,7 +12,7 @@
                 <span class="projects-item-smallText">预期年化收益</span>
             </div>
             <div class="col col-30">
-                <span class="projects-item-bigText">{{project.projectRate}}</span>个月
+                <span class="projects-item-bigText">{{project.projectPeriod}}</span>个月
                 </br>
                 <span class="projects-item-smallText">期限</span>
             </div>
